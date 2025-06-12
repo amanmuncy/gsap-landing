@@ -77,16 +77,52 @@ canvas {
   transform: translateX(30px);
   text-align: right;
 }
-#sleeveWord {
-  z-index: 3;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&display=swap');
+
+#center-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.8rem;
-  font-weight: bold;
-  letter-spacing: 4px;
-  color: rgba(255, 255, 255, 0.4); /* lighter than side text */
-  opacity: 0;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.8vw;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  z-index: 2;
   pointer-events: none;
+  opacity: 0;
+  animation: enterStretch 2.5s ease-out forwards;
 }
+
+@keyframes enterStretch {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleX(2) scaleY(0.6);
+    letter-spacing: 1em;
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleX(1.1) scaleY(1);
+    letter-spacing: 0.2em;
+    filter: blur(0px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: 0.15em;
+    opacity: 1;
+  }
+}
+
+/* .glow is repurposed to pulse the letter-spacing only now */
+.glow {
+  animation: pulseSpacing 5s ease-in-out infinite;
+}
+
+@keyframes pulseSpacing {
+  0%, 100% { letter-spacing: 0.15em; }
+  50% { letter-spacing: 0.25em; }
+}
+
