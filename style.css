@@ -78,51 +78,49 @@ canvas {
   text-align: right;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
 #center-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 2.8vw;
-  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.6vw;
+  color: rgb(255, 255, 255); /* Less opacity */
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   z-index: 2;
   pointer-events: none;
-  opacity: 0;
-  animation: enterStretch 2.5s ease-out forwards;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.05);
+  animation: fadeInZoom 2.2s ease-out forwards;
 }
 
-@keyframes enterStretch {
+@keyframes fadeInZoom {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scaleX(2) scaleY(0.6);
-    letter-spacing: 1em;
-    filter: blur(2px);
+    transform: translate(-50%, -50%) scale(1.8);
+    letter-spacing: 0.6em;
   }
   60% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scaleX(1.1) scaleY(1);
-    letter-spacing: 0.2em;
-    filter: blur(0px);
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.1);
   }
   100% {
     transform: translate(-50%, -50%) scale(1);
-    letter-spacing: 0.15em;
-    opacity: 1;
+    opacity: 0.4;
   }
 }
 
-/* .glow is repurposed to pulse the letter-spacing only now */
+/* Optional subtle breathing motion */
 .glow {
-  animation: pulseSpacing 5s ease-in-out infinite;
+  animation: spacingBreath 4s ease-in-out infinite;
 }
 
-@keyframes pulseSpacing {
-  0%, 100% { letter-spacing: 0.15em; }
+@keyframes spacingBreath {
+  0%, 100% { letter-spacing: 0.2em; }
   50% { letter-spacing: 0.25em; }
 }
+
 
